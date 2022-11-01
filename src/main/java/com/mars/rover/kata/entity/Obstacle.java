@@ -1,4 +1,4 @@
-package entity;
+package com.mars.rover.kata.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

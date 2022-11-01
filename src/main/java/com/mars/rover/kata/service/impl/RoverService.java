@@ -1,10 +1,10 @@
-package service.impl;
+package com.mars.rover.kata.service.impl;
 
-import entity.Coordinates;
+import com.mars.rover.kata.entity.Coordinates;
+import com.mars.rover.kata.service.IRoverService;
+import com.mars.rover.kata.service.business.CoordinatesBusinessLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import service.IRoverService;
-import service.business.CoordinatesBusinessLogic;
 
 @Service
 public class RoverService implements IRoverService {

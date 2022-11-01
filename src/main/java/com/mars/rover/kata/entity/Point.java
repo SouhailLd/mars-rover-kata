@@ -1,14 +1,15 @@
-package entity;
+package com.mars.rover.kata.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@Setter
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@Getter
-@Setter
-public class Rover {
-    private Coordinates coordinates;
+public class Point {
+    private int location;
+    private int maxLocation;
 }

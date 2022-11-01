@@ -1,12 +1,17 @@
-package service.impl;
+package com.mars.rover.kata.service.impl;
 
-import entity.Coordinates;
-import entity.Point;
-import enums.DirectionEnum;
+import com.mars.rover.kata.entity.Coordinates;
+import com.mars.rover.kata.enums.DirectionEnum;
+import com.mars.rover.kata.service.ICoordinatesService;
+import com.mars.rover.kata.service.IPointService;
+import com.mars.rover.kata.entity.Obstacle;
+import com.mars.rover.kata.entity.Point;
 import org.springframework.beans.factory.annotation.Autowired;
-import service.ICoordinatesService;
-import service.IPointService;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
 public class CoordinatesService implements ICoordinatesService {
 
     @Autowired
@@ -32,9 +37,9 @@ public class CoordinatesService implements ICoordinatesService {
                 xLocation = pointService.getBackwardLocation(x);
                 break;
         }
-        if (!hasObstacle(coordinates)) {
-            x.setLocation(xLocation);
-            y.setLocation(yLocation);
+        if (!hasObstacle(coordinates.getObstacles(), xLocation, yLocation)) {
+            coordinates.getX().setLocation(xLocation);
+            coordinates.getY().setLocation(yLocation);
             return true;
         } else {
             return false;
@@ -50,16 +55,18 @@ public class CoordinatesService implements ICoordinatesService {
     }
 
     /**
+     * checks if current position has obstacle
      *
-     * @param coordinates
+     * @param obstacleList
+     * @param xLocation
+     * @param yLocation
      * @return
      */
-    private boolean hasObstacle(Coordinates coordinates) {
-        return coordinates
-                .getObstacles()
+    private boolean hasObstacle(List<Obstacle> obstacleList, int xLocation, int yLocation) {
+        return obstacleList
                 .stream()
                 .anyMatch(obstacle ->
-                        obstacle.getX() == coordinates.getX().getLocation()
-                                && obstacle.getY() == coordinates.getY().getLocation());
+                        obstacle.getX() == xLocation
+                                && obstacle.getY() == yLocation);
     }
 }

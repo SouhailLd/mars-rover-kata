@@ -1,9 +1,10 @@
-package service;
+package com.mars.rover.kata.service;
 
-import entity.Coordinates;
+import com.mars.rover.kata.entity.Coordinates;
 
 public interface IRoverService {
     /**
+     * handles list of commands received by the rover
      *
      * @param coordinates
      * @param commands
@@ -12,6 +13,7 @@ public interface IRoverService {
     public void receiveCommands(Coordinates coordinates, String commands) throws IllegalArgumentException;
 
     /**
+     * handles and treats a single command received by the rover
      *
      * @param coordinates
      * @param command

@@ -1,10 +1,11 @@
-package service;
+package com.mars.rover.kata.service;
 
-import entity.Coordinates;
-import enums.DirectionEnum;
+import com.mars.rover.kata.entity.Coordinates;
+import com.mars.rover.kata.enums.DirectionEnum;
 
 public interface ICoordinatesService {
     /**
+     * moves the rover according to coordinates input and the direction chosen
      *
      * @param coordinates
      * @param directionValue
@@ -13,6 +14,7 @@ public interface ICoordinatesService {
     public boolean move(Coordinates coordinates, DirectionEnum directionValue);
 
     /**
+     * change the direction of the rover according to current coordinates and the step direction
      *
      * @param coordinates
      * @param directionStep

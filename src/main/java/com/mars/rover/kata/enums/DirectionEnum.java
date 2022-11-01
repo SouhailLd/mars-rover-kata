@@ -1,4 +1,4 @@
-package enums;
+package com.mars.rover.kata.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

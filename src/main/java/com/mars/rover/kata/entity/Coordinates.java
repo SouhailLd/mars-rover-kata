@@ -1,10 +1,7 @@
-package entity;
+package com.mars.rover.kata.entity;
 
-import enums.DirectionEnum;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.mars.rover.kata.enums.DirectionEnum;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,6 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Coordinates {
     private Point x;
     private Point y;
