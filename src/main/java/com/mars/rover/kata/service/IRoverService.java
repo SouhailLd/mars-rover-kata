@@ -10,7 +10,7 @@ public interface IRoverService {
      * @param commands
      * @throws IllegalArgumentException
      */
-    public void receiveCommands(Coordinates coordinates, String commands) throws IllegalArgumentException;
+    public void receiveListOfCommands(Coordinates coordinates, String commands) throws IllegalArgumentException;
 
     /**
      * handles and treats a single command received by the rover
@@ -21,4 +21,11 @@ public interface IRoverService {
      * @throws IllegalArgumentException
      */
     public boolean receiveSingleCommand(Coordinates coordinates, char command) throws IllegalArgumentException;
+
+    /**
+     * return current rover position
+     * @param coordinates
+     * @return
+     */
+    public String getCurrentRoverPosition(Coordinates coordinates);
 }

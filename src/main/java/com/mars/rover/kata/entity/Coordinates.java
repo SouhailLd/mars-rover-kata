@@ -17,11 +17,4 @@ public class Coordinates {
     private List<Obstacle> obstacles;
     private boolean foundObstacle = false;
 
-    public String toString() {
-        String status = "";
-        if (foundObstacle) {
-            status = " NOK";
-        }
-        return getX().getLocation() + " X " + getY().getLocation() + " " + getDirection().getShortName() + status;
-    }
 }

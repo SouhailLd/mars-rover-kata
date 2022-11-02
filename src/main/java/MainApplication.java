@@ -24,12 +24,12 @@ public class MainApplication {
                 .y(y)
                 .direction(direction)
                 .obstacles(obstacles).build();
-        coordinatesBusinessLogic.moveForward(coordinates);
+        coordinatesBusinessLogic.moveRoverForward(coordinates);
         System.out.println("X= " +coordinates.getX().getLocation()+ " Y= " +coordinates.getY().getLocation());
-        coordinatesBusinessLogic.moveBackward(coordinates);
+        coordinatesBusinessLogic.moveRoverBackward(coordinates);
         System.out.println("X= " +coordinates.getX().getLocation()+ " Y= " +coordinates.getY().getLocation());
         coordinates.setDirection(DirectionEnum.EAST);
-        coordinatesBusinessLogic.moveForward(coordinates);
+        coordinatesBusinessLogic.moveRoverForward(coordinates);
         System.out.println("X= " +coordinates.getX().getLocation()+ " Y= " +coordinates.getY().getLocation());
     }
 

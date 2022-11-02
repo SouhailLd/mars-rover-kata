@@ -13,7 +13,7 @@ public class RoverService implements IRoverService {
     private CoordinatesBusinessLogic coordinatesBusinessLogic;
 
     @Override
-    public void receiveCommands(Coordinates coordinates, String commands) throws IllegalArgumentException {
+    public void receiveListOfCommands(Coordinates coordinates, String commands) throws IllegalArgumentException {
         for (char command : commands.toCharArray()) {
             if (!receiveSingleCommand(coordinates, command)) {
                 break;
@@ -25,17 +25,27 @@ public class RoverService implements IRoverService {
     public boolean receiveSingleCommand(Coordinates coordinates, char command) throws IllegalArgumentException {
         switch(Character.toUpperCase(command)) {
             case 'F':
-                return coordinatesBusinessLogic.moveForward(coordinates);
+                return coordinatesBusinessLogic.moveRoverForward(coordinates);
             case 'B':
-                return coordinatesBusinessLogic.moveBackward(coordinates);
+                return coordinatesBusinessLogic.moveRoverBackward(coordinates);
             case 'L':
-                coordinatesBusinessLogic.changeDirectionLeft(coordinates);
+                coordinatesBusinessLogic.changeDirectionToLeft(coordinates);
                 return true;
             case 'R':
-                coordinatesBusinessLogic.changeDirectionRight(coordinates);
+                coordinatesBusinessLogic.changeDirectionToRight(coordinates);
                 return true;
             default:
                 throw new IllegalArgumentException("Command " + command + " is unknown.");
         }
+    }
+
+    @Override
+    public String getCurrentRoverPosition(Coordinates coordinates) {
+        String status = "";
+        if (coordinates.isFoundObstacle()) {
+            status = "Yes";
+        }
+        return "X= " + coordinates.getX().getLocation() + " Y=" + coordinates.getY().getLocation()
+                + " Direction = " + coordinates.getDirection().getShortName() + " Has obstacle = " +status;
     }
 }

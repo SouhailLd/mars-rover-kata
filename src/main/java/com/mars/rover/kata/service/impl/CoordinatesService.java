@@ -42,6 +42,7 @@ public class CoordinatesService implements ICoordinatesService {
             coordinates.getY().setLocation(yLocation);
             return true;
         } else {
+            coordinates.setFoundObstacle(true);
             return false;
         }
     }
